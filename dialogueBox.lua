@@ -19,7 +19,7 @@ function DialogueBox:new(text, textColor, boxColor)
     return o
 end
 
-function DialogueBox:update(dt)
+function DialogueBox:update(activation)
     -- Stocker l'état précédent du bouton
     local previousState = self.clicked
     -- Vérifier si le bouton est enfoncé
@@ -37,8 +37,11 @@ function DialogueBox:update(dt)
         end
     end
     if  self.text[self.currentText] == "" then
-        --old background (map / menu etc..)
-        moduleScene.currentScene = moduleScene.PlayScene
+        if activation == nil then
+            moduleScene.currentScene = moduleScene.PlayScene
+        else
+            activation()
+        end
     end
 end
 

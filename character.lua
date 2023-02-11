@@ -14,7 +14,7 @@ function Character:new(x,y,width,height,sprite,scale,callback,nbrFrame,speed)
     o.callback = callback or 'n/a'
     o.moveB = false
     o.destination = {}
-    o.speed = speed
+    o.speed = speed or 1
     o.nbrFrame = nbrFrame
     o.quads = {}
     o.currentFrame = 0
@@ -27,6 +27,13 @@ function Character:callback()
     if  self.callback == 'n/a' then
     else
         self.callback(self)
+    end
+end
+
+function Character:changeSkin(nSkin)
+    self.sprites = love.graphics.newImage(nSkin)
+    for i = 0, self.nbrFrame do
+        self.quads[i] = love.graphics.newQuad(i * self.width , 0, self.width , self.height, self.sprites:getDimensions())
     end
 end
 

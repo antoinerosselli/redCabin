@@ -25,7 +25,7 @@ local function goBack()
     moduleScene.currentScene = moduleScene.oldScene
 end
 
-local buttonBack = Button:new(moduleParam.window_Width - 250, moduleParam.window_Height - 150 , 200, 100, {0, 0, 0}, "back",{1, 1, 1},goBack) -- bouton bleu avec texte "Bouton bleu"
+local buttonBack = Button:new(moduleParam.window_Width / 2 - 350, moduleParam.window_Height - 150 , 200, 100, {0, 0, 0}, "back",{1, 1, 1},goBack) -- bouton bleu avec texte "Bouton bleu"
 
 table.insert(buttons,buttonBack)
 

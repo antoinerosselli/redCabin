@@ -45,12 +45,24 @@ local function quit()
 end
 
 
-local function test()
+local function continue()
     if moduleSave:continue() == "playScene" then
         moduleScene.currentScene = playScene
     end 
     if moduleSave:continue() == "playSceneTwo" then
         moduleScene.currentScene = playSceneTwo
+    end 
+    if moduleSave:continue() == "playSceneThree" then
+        moduleScene.currentScene = playSceneThree
+    end 
+    if moduleSave:continue() == "playSceneFour" then
+        moduleScene.currentScene = playSceneFour
+    end 
+    if moduleSave:continue() == "playSceneFive" then
+        moduleScene.currentScene = playSceneFive
+    end 
+    if moduleSave:continue() == "playSceneSix" then
+        moduleScene.currentScene = playSceneSix
     end 
 end
 
@@ -65,7 +77,7 @@ end
 
 local buttons = {}
 local posEntry = moduleParam.window_Height / 3
-local buttonContinue = Button:new(moduleParam.window_Width - 250, posEntry , 200, 100, {0, 0, 0}, "Continuer",{1, 1, 1}, test) 
+local buttonContinue = Button:new(moduleParam.window_Width - 250, posEntry , 200, 100, {0, 0, 0}, "Continuer",{1, 1, 1}, continue) 
 local buttonNew = Button:new(moduleParam.window_Width - 250, posEntry + 120, 200, 100, {0, 0, 0}, "Nouvelle partie",{1, 1, 1}, openPopup) 
 local buttonSettings = Button:new(moduleParam.window_Width - 250, posEntry + 240, 200, 100, {0, 0, 0}, "Paramètres",{1, 1, 1}, changetoSettings) 
 local buttonQuit = Button:new(moduleParam.window_Width - 250, posEntry + 360, 200, 100, {0, 0, 0}, "Quitter",{1, 1, 1}, quit) 
@@ -95,6 +107,9 @@ function MenuScene:update(dt)
               go = true
           end
       end  
+      if love.keyboard.isDown("t") then
+        moduleScene.currentScene = sceneTestMenu
+    end
 end
 
 function MenuScene:draw()

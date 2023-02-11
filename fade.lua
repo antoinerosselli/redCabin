@@ -28,7 +28,7 @@ end
 
 function Fade:draw()
     love.graphics.setColor(0,0,0, self.alpha)
-    love.graphics.rectangle("fill", 0, 0, 5000, 5000) 
+    love.graphics.rectangle("fill", -1000, -500, 5000, 5000) 
 end
 
 return Fade

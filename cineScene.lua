@@ -27,6 +27,7 @@ local frameTimer = 0
 local frameDuration = 0
 
 function CineScene:load()
+    moduleScene.fadeOk = true
     self.quads = {}
     moduleScene.cursorPresence = false
     frameDuration = self.speed

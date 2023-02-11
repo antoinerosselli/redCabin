@@ -170,7 +170,9 @@ function playScene:draw()
         item:draw()
     end
     me:draw()
-    fade:draw()
+    if moduleScene.fadeOk == true then
+        fade:draw()
+    end
     camera:unset()
 end
 

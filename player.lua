@@ -21,7 +21,6 @@ function Player:new(x, y, color, list_collide,list_interact)
     return object
 end
 
-
 local currentFrame_no_move = 0
 local currentFrame_move_up = 0
 local frameTimer = 0

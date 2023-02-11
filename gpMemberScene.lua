@@ -36,6 +36,7 @@ local buttonBack = Button:new(moduleParam.window_Width - 250, moduleParam.window
 table.insert(buttons,buttonBack)
 
 function GpMemberScene:load()
+    moduleScene.fadeOk = false
     MemberL.x = MemberL.originx
     MemberL.y = MemberL.originy
 
@@ -46,7 +47,7 @@ end
 function GpMemberScene:checkCollision(member,object)
         local memberLeft = member.x
         local memberTop = member.y
-        local meberRight = member.x + member.width
+        local meberRight = member.x + member.width + 20
         local memberBottom = member.y + member.height
         local itemLeft = object.x
         local itemTop = object.y
