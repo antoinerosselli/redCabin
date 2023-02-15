@@ -23,8 +23,8 @@ function playSceneTwo:new()
 end
 
 local function loganRun()
-    Logan:changeSkin("Logan_move_up.png")
-    Logan:move(600,680,'Logan_no_move.png')
+    Logan:changeSkin("img/Logan_move_up.png")
+    Logan:move(600,680,'img/Logan_no_move.png')
 end
 
 local function goNextPlace()
@@ -32,8 +32,8 @@ local function goNextPlace()
 end 
 
 local function go_to_car()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big.png")
     local texts = {"On va ou ?","Dans ton cul",""}
     local dialCar = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local first_trip = TalkSceneInCar:new(Gabi,1.5,Julie,2.5,{150,200,100,100},dialCar,goNextPlace)
@@ -41,8 +41,8 @@ local function go_to_car()
 end
 
 local function talkWithLogan()
-    local Logan = love.graphics.newImage("Logan_no_move.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Logan = love.graphics.newImage("img/Logan_no_move.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Salut toi , tu peux me dire où se trouve ton papa ?","Mon papa est devant la grange, il surveille les vaches","Est-ce que tu pourrais m'ammener vers lui ? J'aimerais lui parler","Oui ! Suis-moi",""}
     local dialLoganJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkLoganJulie = talkScene:new(true,Julie,2,Logan,2,{100,100,100,200},dialLoganJulie,loganRun)
@@ -51,8 +51,8 @@ local function talkWithLogan()
 end
 
 local function talkWithGabi()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Bonjour, qu'est ce que je peux faire pour vous ?","Bonjour je suis Julie, je viens de la part du ministère des fleurs. Vous avez demandez à acquérir des nouveaux terrains, je suis ici pour établir un dossier sur votre ferme","Oh ! Vous avez fait vite, moi c'est Gabi. Suivez-moi je vais vous faire un tour de la ferme",""}
     local dialLoganJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkLoganJulie = talkScene:new(true,Julie,2,Gabi,1,{100,100,150,200},dialLoganJulie, nothing)
@@ -66,13 +66,13 @@ local items_noCollide = {}
 local items_interact = {}
 local characters = {}
 
-local spriteGrange = love.graphics.newImage("grange.png")
-local spriteLogan = love.graphics.newImage("Logan_no_move.png")
-local spriteVacheOne = love.graphics.newImage("vache_miam_one.png")
-local spriteGabi = love.graphics.newImage("gabi_big.png")
-local spriteCamionGabi = love.graphics.newImage("camion_de_gabi.png")
-local spriteEstelFarm = love.graphics.newImage("Estel_Farm.png")
-local spriteVelo = love.graphics.newImage("bike.png")
+local spriteGrange = love.graphics.newImage("img/grange.png")
+local spriteLogan = love.graphics.newImage("img/Logan_no_move.png")
+local spriteVacheOne = love.graphics.newImage("img/vache_miam_one.png")
+local spriteGabi = love.graphics.newImage("img/gabi_big.png")
+local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
+local spriteEstelFarm = love.graphics.newImage("img/Estel_Farm.png")
+local spriteVelo = love.graphics.newImage("img/bike.png")
 
 local me = player:new(600, 1600, {0,1,0}, items_collide, items_interact)
 local Gabi = Character:new(730,680,150,200,spriteGabi,1.2,talkWithGabi,1,2)
@@ -139,7 +139,7 @@ function playSceneTwo:update(dt)
         moduleScene.currentScene = PauseScene
     end
     if 670 < Logan.y and 690 > Logan.y then
-        Logan:changeSkin("Logan_no_move.png")
+        Logan:changeSkin("img/Logan_no_move.png")
     end
 end
 

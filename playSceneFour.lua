@@ -31,8 +31,8 @@ local function goNextPlace()
 end 
 
 local function go_to_car()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big.png")
     local texts = {"On va ou ?","Dans ton cul",""}
     local dialCar = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local first_trip = TalkSceneInCar:new(Gabi,1.5,Julie,2.5,{150,200,100,100},dialCar,goNextPlace)
@@ -41,8 +41,8 @@ end
 
 
 local function talkWithGabi()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"...","ça va ?","Oui, R.A.S",""}
     local dialGabiJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkGabiJulie = talkScene:new(true,Julie,2,Gabi,1,{100,100,150,200},dialGabiJulie, nothing)
@@ -51,8 +51,8 @@ local function talkWithGabi()
 end
 
 local function talkWithVache()
-    local Vache = love.graphics.newImage("vache_miam_one.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Vache = love.graphics.newImage("img/vache_miam_one.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Meuh","oui ?","Meuh Meuh","D'accord...",""}
     local dialVacheJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkVacheJulie = talkScene:new(true,Julie,2,Vache,1,{100,100,300,150},dialVacheJulie, nothing)
@@ -61,8 +61,8 @@ local function talkWithVache()
 end
 
 local function talkWithSofia()
-    local Sofia = love.graphics.newImage("Sofia_big.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Sofia = love.graphics.newImage("img/Sofia_big.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Bonjour ???","Bonjour Madame !","Vous m'attendiez ?","Ah eee moi non pas du tout !","Vous allez bien ?","Oui pardon pardon, c'était une journée épuisante, je m'appelle Sofia. Bienvenue à la ferme Estel","Merci ! Moi c'est Julie je suis venu pour faire un petit contrôle de routine de votre ferme.","Oui oui je m'en doutais vous restez combien de temps ?","Deux jours, pour m'assurer que tout ce va bien et bien tout vérifier","D'accord d'accord","...","...","Bon je vais continuer la visite à ce soir",""}
     local dialSofiaJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkSofiaJulie = talkScene:new(true,Julie,2,Sofia,1.3,{100,100,100,200},dialSofiaJulie, nothing)
@@ -70,9 +70,9 @@ local function talkWithSofia()
     moduleScene.currentScene = talkSofiaJulie
 end
 
-local spriteCamionGabi = love.graphics.newImage("camion_de_gabi.png")
-local spriteSilo = love.graphics.newImage("silo.png")
-local spriteReserve = love.graphics.newImage("reserve.png")
+local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
+local spriteSilo = love.graphics.newImage("img/silo.png")
+local spriteReserve = love.graphics.newImage("img/reserve.png")
 -------- Les murs
 local wallone = Item:new(-200, 600, 100, 1200,{0.6,0.8,0.5})
 local walltwo = Item:new(-200, 600, 1400, 100,{0.6,0.8,0.5})
@@ -83,13 +83,13 @@ local CamionGabi = Item:new(450,1900,500,300,{1,1,1},go_to_car,spriteCamionGabi,
 local reserve = Item:new(150,700,600,500,{1,1,1},nothing,spriteReserve,1.1)
 local silo_un = Item:new(800,400,400,650,{1,1,1},nothing,spriteSilo,1)
 local silo_deux = Item:new(800,600,400,650,{1,1,1},nothing,spriteSilo,1)
-local spriteGabi = love.graphics.newImage("gabi_big.png")
+local spriteGabi = love.graphics.newImage("img/gabi_big.png")
 local Gabi = Character:new(730,1450,150,200,spriteGabi,1.2,talkWithGabi,1,2)
 Gabi:load()
-local spriteSofia = love.graphics.newImage("Sofia_big.png")
+local spriteSofia = love.graphics.newImage("img/Sofia_big.png")
 local Sofia = Character:new(600,1080,100,200,spriteSofia,1.3,talkWithSofia,1.3,2)
 Sofia:load()
-local spriteVacheOne = love.graphics.newImage("vache_miam_one.png")
+local spriteVacheOne = love.graphics.newImage("img/vache_miam_one.png")
 local VacheOne = Character:new(-50,1280,300,150,spriteVacheOne,1,talkWithVache,10,1)
 VacheOne:load()
 
@@ -136,7 +136,7 @@ function playSceneFour:update(dt)
         moduleScene.currentScene = PauseScene
     end
     if 670 < Logan.y and 690 > Logan.y then
-        Logan:changeSkin("Logan_no_move.png")
+        Logan:changeSkin("img/Logan_no_move.png")
     end
 end
 

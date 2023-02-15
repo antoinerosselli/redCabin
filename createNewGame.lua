@@ -14,7 +14,7 @@ end
 
 local function newGame()
     moduleSave:newGame()
-    local hell_door = love.graphics.newImage("hell_door.png")
+    local hell_door = love.graphics.newImage("img/hell_door.png")
     local the_door = cineScene:new(hell_door,moduleParam.window_Width / 2 - 250 , moduleParam.window_Height / 2 - 350,0.4,500,700,30,playScene,1)
     moduleScene.currentScene = the_door
 end

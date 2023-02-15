@@ -21,6 +21,8 @@ local playSceneFour = require('playSceneFour')
 local playSceneFive = require('playSceneFive')
 local playSceneSix = require('playSceneSix')
 local playSceneSeven = require('playSceneSeven')
+local playSceneEight = require('playSceneEight')
+local playSceneNine = require('playSceneNine')
 local sceneTestMenu = require('sceneTestMenu')
 local current_text = 1 
 local boxstate = false
@@ -28,11 +30,11 @@ local isDragging = false
 
 local menu = menuScene:new()
 
-local cursor = love.mouse.newCursor("cursor.png", 0, 0)
-local nocursor = love.mouse.newCursor("nothing.png", 0, 0)
+local cursor = love.mouse.newCursor("img/cursor.png", 0, 0)
+local nocursor = love.mouse.newCursor("img/nothing.png", 0, 0)
 
 -- Chargement de l'image de sprite sheet
-local introSprite = love.graphics.newImage("logodev.png")
+local introSprite = love.graphics.newImage("img/logodev.png")
 local window_Width, window_Height = love.window.getDesktopDimensions()
 local introLogo = CineScene:new(introSprite,window_Width / 2 - 150,window_Height / 2 - 150, 3 ,300,300,1, menuScene)
 

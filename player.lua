@@ -28,7 +28,7 @@ local frameDuration = 0.5
 
 --- Skin no move ---
 local quads_no_move = {}
-local skin_no_move = love.graphics.newImage("julie_big.png")
+local skin_no_move = love.graphics.newImage("img/julie_big.png")
 for i = 0, 2 do
     quads_no_move[i] = love.graphics.newQuad(i * 100 , 0, 100, 100, skin_no_move:getDimensions())
 end      
@@ -36,7 +36,7 @@ end
 
 --- Skin up ---
 local quads_move_up = {}
-local skin_move_up = love.graphics.newImage("julie_big_up.png")
+local skin_move_up = love.graphics.newImage("img/julie_big_up.png")
 for y = 0, 1 do
     quads_move_up[y] = love.graphics.newQuad(y * 100 , 0, 100, 100, skin_move_up:getDimensions())
 end      
@@ -44,7 +44,7 @@ end
 
 --- Skin up ---
 local quads_move_down = {}
-local skin_move_down = love.graphics.newImage("julie_big_down.png")
+local skin_move_down = love.graphics.newImage("img/julie_big_down.png")
 for y = 0, 1 do
     quads_move_down[y] = love.graphics.newQuad(y * 100 , 0, 100, 100, skin_move_down:getDimensions())
 end      
@@ -52,7 +52,7 @@ end
 
 --- Skin up ---
 local quads_move_left = {}
-local skin_move_left = love.graphics.newImage("julie_big_left.png")
+local skin_move_left = love.graphics.newImage("img/julie_big_left.png")
 for y = 0, 1 do
     quads_move_left[y] = love.graphics.newQuad(y * 100 , 0, 100, 100, skin_move_left:getDimensions())
 end      

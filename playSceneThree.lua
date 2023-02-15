@@ -27,8 +27,8 @@ local function goNextPlace()
 end 
 
 local function go_to_car()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big.png")
     local texts = {"On va ou ?","Dans ton cul",""}
     local dialCar = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local first_trip = TalkSceneInCar:new(Gabi,1.5,Julie,2.5,{150,200,100,100},dialCar,goNextPlace)
@@ -37,8 +37,8 @@ end
 
 
 local function talkWithSaul()
-    local Saul = love.graphics.newImage("Saul_big.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Saul = love.graphics.newImage("img/Saul_big.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Bonjour, c'est toi Saul ?","...Ouai...","C'est toi qui t'occupe de la récolte","...Ouai...","J'aurais besoin de toi demain","Ah ? Pourquoi ?","Je me présente Julie, je travaille pour le ministère des fleurs, je vais faire une petite inspection de l'endroit, rien de farfellu","Oh d'accord... Je vous montrerais tout ce que je fais ici...","Ne t'inquiète pas on a le temps, je reste 2 jours, donc on ce voit ce soir ?","Ok à ce soir...",""}
     local dialSaulJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkSaulJulie = talkScene:new(true,Julie,2,Saul,1,{100,100,100,230},dialSaulJulie,nothing)
@@ -47,8 +47,8 @@ local function talkWithSaul()
 end
 
 local function talkWithGabi()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Montez dans la voiture quand vous avez fini",""}
     local dialGabiJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkGabiJulie = talkScene:new(true,Julie,2,Gabi,1,{100,100,150,200},dialGabiJulie, nothing)
@@ -57,16 +57,16 @@ local function talkWithGabi()
 end
 
 
-local spriteCamionGabi = love.graphics.newImage("camion_de_gabi.png")
-local spriteBle = love.graphics.newImage("big_ble.png")
-local spriteMoulin = love.graphics.newImage("le_moulin.png")
+local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
+local spriteBle = love.graphics.newImage("img/big_ble.png")
+local spriteMoulin = love.graphics.newImage("img/le_moulin.png")
 
 local buttons = {}
 local items_collide = {}
 local items_interact = {}
 
-local spriteGabi = love.graphics.newImage("gabi_big.png")
-local spriteSaul = love.graphics.newImage("Saul_big.png")
+local spriteGabi = love.graphics.newImage("img/gabi_big.png")
+local spriteSaul = love.graphics.newImage("img/Saul_big.png")
 -------- Les murs
 -------- Les murs
 local wallone = Item:new(-200, 600, 100, 1200,{0.6,0.8,0.5})
@@ -131,7 +131,7 @@ function playSceneThree:update(dt)
         moduleScene.currentScene = PauseScene
     end
     if 670 < Logan.y and 690 > Logan.y then
-        Logan:changeSkin("Logan_no_move.png")
+        Logan:changeSkin("img/Logan_no_move.png")
     end
 end
 

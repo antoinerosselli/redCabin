@@ -18,8 +18,8 @@ end
 local members = {}
 local window_Width, window_Height = love.window.getDesktopDimensions()
 
-local MemberL = Member:new(100, window_Height - 200, 100, 200, "hand_left.png","hand_left_grab.png", moduleParam.handL_up, moduleParam.handL_down, moduleParam.handL_left, moduleParam.handL_right, moduleParam.handL_interaction)
-local MemberR = Member:new(window_Width - 200 , window_Height - 200, 100, 200, "hand_right.png","hand_right_grab.png",moduleParam.handR_up, moduleParam.handR_down, moduleParam.handR_left, moduleParam.handR_right, moduleParam.handR_interaction)
+local MemberL = Member:new(100, window_Height - 200, 100, 200, "img/hand_left.png","img/hand_left_grab.png", moduleParam.handL_up, moduleParam.handL_down, moduleParam.handL_left, moduleParam.handL_right, moduleParam.handL_interaction)
+local MemberR = Member:new(window_Width - 200 , window_Height - 200, 100, 200, "img/hand_right.png","img/hand_right_grab.png",moduleParam.handR_up, moduleParam.handR_down, moduleParam.handR_left, moduleParam.handR_right, moduleParam.handR_interaction)
 
 table.insert(members,MemberL)
 table.insert(members,MemberR)

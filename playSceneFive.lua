@@ -26,8 +26,8 @@ local function goNextPlace()
 end 
 
 local function go_to_car()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big.png")
     local texts = {"On va ou ?","Dans ton cul",""}
     local dialCar = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local first_trip = TalkSceneInCar:new(Gabi,1.5,Julie,2.5,{150,200,100,100},dialCar,goNextPlace)
@@ -35,8 +35,8 @@ local function go_to_car()
 end
 
 local function talkWithGabi()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Il est là ?","Non j'ai pas l'impression ","C'est normal ?","Non, il doit sûrement être encore en ville, on va continuer vous allez le voir ce soir",""}
     local dialGabiJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkGabiJulie = talkScene:new(true,Julie,2,Gabi,1,{100,100,150,200},dialGabiJulie, nothing)
@@ -45,8 +45,8 @@ local function talkWithGabi()
 end
 
 
-local spriteCamionGabi = love.graphics.newImage("camion_de_gabi.png")
-local spritegrillage = love.graphics.newImage("grillage.png")
+local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
+local spritegrillage = love.graphics.newImage("img/grillage.png")
 
 local buttons = {}
 local items_collide = {}
@@ -64,7 +64,7 @@ local grillage_two = Item:new(200, 1000, 300, 300,{1,1,1},nothing,spritegrillage
 local grillage_three = Item:new(500, 1000, 300, 300,{1,1,1},nothing,spritegrillage,1)
 local grillage_four = Item:new(800, 1000, 300, 300,{1,1,1},nothing,spritegrillage,1)
 local CamionGabi = Item:new(350,1900,500,300,{1,1,1},go_to_car,spriteCamionGabi,1)
-local spriteGabi = love.graphics.newImage("gabi_big.png")
+local spriteGabi = love.graphics.newImage("img/gabi_big.png")
 local Gabi = Character:new(730,1450,150,200,spriteGabi,1.2,talkWithGabi,1,2)
 Gabi:load()
 
@@ -82,9 +82,6 @@ table.insert(items_collide, grillage_two)
 table.insert(items_collide, grillage_three)
 table.insert(items_collide, grillage_four)
 table.insert(items_collide, Gabi)
-
-
-
 
 local me = player:new(600, 1600, {0,1,0}, items_collide, items_interact)
 local camera = Camera:new(me.x,me.y)
@@ -110,7 +107,7 @@ function playSceneFive:update(dt)
         moduleScene.currentScene = PauseScene
     end
     if 670 < Logan.y and 690 > Logan.y then
-        Logan:changeSkin("Logan_no_move.png")
+        Logan:changeSkin("img/Logan_no_move.png")
     end
 end
 

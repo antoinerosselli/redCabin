@@ -21,17 +21,17 @@ function playSceneSix:new()
     return o
 end
 
-local spriteMaison = love.graphics.newImage("maison_out.png")
-local spriteFance = love.graphics.newImage("barrière.png")
-local spriteCamionGabi = love.graphics.newImage("camion_de_gabi.png")
+local spriteMaison = love.graphics.newImage("img/maison_out.png")
+local spriteFance = love.graphics.newImage("img/barrière.png")
+local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
 
 local buttons = {}
 local items_collide = {}
 local items_interact = {}
 
 local function talkWithGabi()
-    local Gabi = love.graphics.newImage("gabi_big.png")
-    local Julie = love.graphics.newImage("julie_big_up.png")
+    local Gabi = love.graphics.newImage("img/gabi_big.png")
+    local Julie = love.graphics.newImage("img/julie_big_up.png")
     local texts = {"Vous pouvez rentrer, ma mère Maria est la, je vais chercher Logan",""}
     local dialGabiJulie = dialogue_box:new(texts,{1,1,1},{0,0,1})
     local talkGabiJulie = talkScene:new(true,Julie,2,Gabi,1,{100,100,150,200},dialGabiJulie, nothing)
@@ -43,7 +43,7 @@ local function goInHome()
     moduleScene.currentScene = playSceneSeven
 end
 
-local spriteGabi = love.graphics.newImage("gabi_big.png")
+local spriteGabi = love.graphics.newImage("img/gabi_big.png")
 local Gabi = Character:new(730,1450,150,200,spriteGabi,1.2,talkWithGabi,1,2)
 Gabi:load()
 
@@ -97,7 +97,7 @@ function playSceneSix:update(dt)
         moduleScene.currentScene = PauseScene
     end
     if 670 < Logan.y and 690 > Logan.y then
-        Logan:changeSkin("Logan_no_move.png")
+        Logan:changeSkin("img/Logan_no_move.png")
     end
 end
 

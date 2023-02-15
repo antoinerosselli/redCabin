@@ -24,13 +24,18 @@ end
 local items_collide = {}
 local items_interact = {}
 
-local spriteTable = love.graphics.newImage("table_no_eat.png")
-local spriteSeat = love.graphics.newImage("seat.png")
-local spriteCuisine = love.graphics.newImage("lacuisine.png")
+local spriteTable = love.graphics.newImage("img/table_no_eat.png")
+local spriteSeat = love.graphics.newImage("img/seat.png")
+local spriteCuisine = love.graphics.newImage("img/lacuisine.png")
+local spriteStairs = love.graphics.newImage("img/escalier.png")
 
-local spriteMaria = love.graphics.newImage("Maria.png")
+local spriteMaria = love.graphics.newImage("img/Maria.png")
 local Maria = Character:new(1700,130,100,160,spriteMaria,1.33,nothing,1,2)
 Maria:load()
+
+local function gotoroom()
+    moduleScene.currentScene = playSceneEight
+end
 
 -------- Les murs
 local wallone = Item:new(0, 600, 500, 100,{139/255, 69/255, 19/255})
@@ -45,6 +50,7 @@ local wallnine = Item:new(0, -100, 100, 800,{139/255, 69/255, 19/255})
 local wallten = Item:new(2000, -100, 100, 700,{139/255, 69/255, 19/255})
 local table_no_eat = Item:new(400, 180, 600, 200,{1,1,1},nothing,spriteTable,1)
 local cuisine = Item:new(1400, 420, 600, 80,{1,1,1},nothing,spriteCuisine,1)
+local stairs = Item:new(100, 0, 100, 100,{1,1,1},gotoroom,spriteStairs,1)
 
 local seat_one = Item:new(450, 350, 100, 100,{1,1,1},nothing,spriteSeat,1)
 local seat_two = Item:new(660, 350, 100, 100,{1,1,1},nothing,spriteSeat,1)
@@ -67,6 +73,7 @@ table.insert(items_collide, wallnine)
 table.insert(items_collide, wallten)
 table.insert(items_collide, Maria)
 table.insert(items_collide,cuisine)
+table.insert(items_collide,stairs)
 
 table.insert(items_collide,seat_six)
 table.insert(items_collide,seat_seven)
@@ -81,6 +88,7 @@ table.insert(items_collide,seat_four)
 table.insert(items_collide,seat_five)
 
 table.insert(items_interact,Maria)
+table.insert(items_interact,stairs)
 
 local me = player:new(100, 400, {0,1,0}, items_collide, items_interact)
 local camera = Camera:new(me.x,me.y)
@@ -105,7 +113,7 @@ function playSceneSeven:update(dt)
         moduleScene.currentScene = PauseScene
     end
     if 670 < Logan.y and 690 > Logan.y then
-        Logan:changeSkin("Logan_no_move.png")
+        Logan:changeSkin("img/Logan_no_move.png")
     end
 end
 

@@ -16,7 +16,7 @@ function TalkSceneInCar:new(charac_one,size_one,charac_two,size_two,spriteSize,d
     o.dialogue_box = dialogue_box
     o.nextAction = nextAction
     o.arg1 = arg1
-    o.background = love.graphics.newImage("inthecar.png")
+    o.background = love.graphics.newImage("img/inthecar.png")
     return o
 end
 

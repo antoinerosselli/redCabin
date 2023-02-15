@@ -18,8 +18,8 @@ function MenuScene:load()
 end
 
 -- Chargement de l'image de sprite sheet
-local spriteSheet = love.graphics.newImage("ble_menu.png")
-local la_cabane = love.graphics.newImage("la_cabane.png")
+local spriteSheet = love.graphics.newImage("img/ble_menu.png")
+local la_cabane = love.graphics.newImage("img/la_cabane.png")
 
 -- Création de quads pour chaque sprite
 local spriteWidth, spriteHeight = 300, 300
@@ -64,6 +64,15 @@ local function continue()
     if moduleSave:continue() == "playSceneSix" then
         moduleScene.currentScene = playSceneSix
     end 
+    if moduleSave:continue() == "playSceneSeven" then
+        moduleScene.currentScene = playSceneSeven
+    end 
+    if moduleSave:continue() == "playSceneEight" then
+        moduleScene.currentScene = playSceneEight
+    end 
+    if moduleSave:continue() == "playSceneNine" then
+        moduleScene.currentScene = playSceneNine
+    end 
 end
 
 local function changetoSettings()
@@ -81,7 +90,7 @@ local buttonContinue = Button:new(moduleParam.window_Width - 250, posEntry , 200
 local buttonNew = Button:new(moduleParam.window_Width - 250, posEntry + 120, 200, 100, {0, 0, 0}, "Nouvelle partie",{1, 1, 1}, openPopup) 
 local buttonSettings = Button:new(moduleParam.window_Width - 250, posEntry + 240, 200, 100, {0, 0, 0}, "Paramètres",{1, 1, 1}, changetoSettings) 
 local buttonQuit = Button:new(moduleParam.window_Width - 250, posEntry + 360, 200, 100, {0, 0, 0}, "Quitter",{1, 1, 1}, quit) 
-local tilte = love.graphics.newImage("title.png")
+local tilte = love.graphics.newImage("img/title.png")
 table.insert(buttons, buttonContinue)
 table.insert(buttons, buttonNew)
 table.insert(buttons, buttonSettings)

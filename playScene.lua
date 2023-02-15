@@ -24,16 +24,16 @@ end
 
 
 function vape_cine()
-    local introSprite = love.graphics.newImage("vapeCine.png")
+    local introSprite = love.graphics.newImage("img/vapeCine.png")
     local cineVape = CineScene:new(introSprite,moduleParam.window_Width / 2 - 350,moduleParam.window_Height /2 - 250,0.3,700,500,15, playScene, 1)
     moduleScene.currentScene = cineVape
 end
 
 function trajet_cine()
-    local introSprite = love.graphics.newImage("trajet_to_estel_P01.png")
-    local introSprite2 = love.graphics.newImage("trajet_to_estel_P02.png")
-    local introSprite3 = love.graphics.newImage("trajet_to_estel_P03.png")
-    local introSprite4 = love.graphics.newImage("trajet_to_estel_P04.png")
+    local introSprite = love.graphics.newImage("img/trajet_to_estel_P01.png")
+    local introSprite2 = love.graphics.newImage("img/trajet_to_estel_P02.png")
+    local introSprite3 = love.graphics.newImage("img/trajet_to_estel_P03.png")
+    local introSprite4 = love.graphics.newImage("img/trajet_to_estel_P04.png")
     local trajetCinep4 = CineScene:new(introSprite4,moduleParam.window_Width / 2 - 350,moduleParam.window_Height /2 - 250,0.3,700,500,12, playSceneTwo,1)
     local trajetCinep3 = CineScene:new(introSprite3,moduleParam.window_Width / 2 - 350,moduleParam.window_Height /2 - 250,0.3,700,500,17, trajetCinep4,1)
     local trajetCinep2 = CineScene:new(introSprite2,moduleParam.window_Width / 2 - 350,moduleParam.window_Height /2 - 250,0.3,700,500,12, trajetCinep3,1)
@@ -45,8 +45,8 @@ local function go_vape_act()
     local gpVape = {}
     local list_of_object = {}
     local list_of_set = {}
-    local imgVape_object = love.graphics.newImage("vape_object.png")
-    local imgDesk_object = love.graphics.newImage("deskOne.png")
+    local imgVape_object = love.graphics.newImage("img/vape_object.png")
+    local imgDesk_object = love.graphics.newImage("img/deskOne.png")
     local vapeItem = Item:new(500,500,150,200, {1,1,1},vape_cine, imgVape_object)
     local deskSet = Item:new(0,0,700,500,{1,1,1},nothing,imgDesk_object,2)
     table.insert(list_of_object,vapeItem)
@@ -60,9 +60,9 @@ local function go_letter_box()
     local gpBoite = {}
     local list_of_object_boite = {}
     local list_of_set_boite = {}
-    local imgFlower_object = love.graphics.newImage("Noe_flower.png")
-    local imgLetter_object = love.graphics.newImage("mdf_letter.png")
-    local imgBoite_object = love.graphics.newImage("boite.png")
+    local imgFlower_object = love.graphics.newImage("img/Noe_flower.png")
+    local imgLetter_object = love.graphics.newImage("img/mdf_letter.png")
+    local imgBoite_object = love.graphics.newImage("img/boite.png")
     function noe_doc()
         local noe_letter = DocumentScene:new("Noe","Merci pour la soirée d'hier, on refait ça quand tu veux <3","Pour Julie")
         moduleScene.oldScene = moduleScene.currentScene
@@ -89,11 +89,11 @@ local items_collide = {}
 local items_noCollide = {}
 local items_interact = {}
 
-local imgCanap = love.graphics.newImage("canape.png")
-local imgLit = love.graphics.newImage("lit.png")
-local imgVape = love.graphics.newImage("vape.png")
-local imgLettre = love.graphics.newImage("boiteolettre.png")
-local imgDoor = love.graphics.newImage("door.png")
+local imgCanap = love.graphics.newImage("img/canape.png")
+local imgLit = love.graphics.newImage("img/lit.png")
+local imgVape = love.graphics.newImage("img/vape.png")
+local imgLettre = love.graphics.newImage("img/boiteolettre.png")
+local imgDoor = love.graphics.newImage("img/door.png")
 
 -------- Les murs
 local wallone = Item:new(100, 600, 700, 100,{0.6,0.6,0.6})
