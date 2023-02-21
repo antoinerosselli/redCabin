@@ -21,25 +21,48 @@ function playSceneNine:new()
     return o
 end
 
+local function gophaseTwo ()
+    moduleScene.currentScene = playSceneTen
+end 
 
 local items_collide = {}
 local items_interact = {}
 
 local spriteDoor = love.graphics.newImage("img/door.png")
+local spriteClientOne = love.graphics.newImage("img/clientOne.png")
+local spriteClientTwo = love.graphics.newImage("img/clientTwo.png")
+local spriteClientThree = love.graphics.newImage("img/clientThree.png")
+local spriteClientFour = love.graphics.newImage("img/clientFour.png")
+local spriteClientFive = love.graphics.newImage("img/clientFive.png")
+local spriteClientNOE = love.graphics.newImage("img/clientNOE.png")
 
 -------- Les murs
-local wallone = Item:new(-150, 600, 100, 1200,{139/255, 69/255, 19/255})
-local walltwo = Item:new(-150, 600, 1350, 100,{139/255, 69/255, 19/255})
-local walltrois = Item:new(-150, 1800, 1450, 100,{139/255, 69/255, 19/255})
-local wallquatre = Item:new(1200, 600, 100, 1200,{139/255, 69/255, 19/255})
-local door = Item:new(550, 1800, 100, 100,{1,1,1},nothing,spriteDoor,1)
+local wallone = Item:new(-150, 600, 100, 1200,{255/255, 192/255, 203/255})
+local walltwo = Item:new(-150, 600, 1350, 100,{255/255, 192/255, 203/255})
+local walltrois = Item:new(-150, 1800, 1450, 100,{255/255, 192/255, 203/255})
+local wallquatre = Item:new(1200, 600, 100, 1200,{255/255, 192/255, 203/255})
+local door = Item:new(550, 1800, 100, 100,{255/255, 192/255, 203/255},nothing,spriteDoor,1)
+local clientOne = Item:new(100, 1500 ,350,200, {1,1,1},nothing,spriteClientOne,1)
+local clientTwo = Item:new(100, 1200, 350, 200, {1,1,1},nothing, spriteClientTwo,1)
+local clientThree = Item:new(100, 900, 350, 200, {1,1,1},nothing, spriteClientThree,1)
+local clientFour= Item:new(800, 900, 350, 200, {1,1,1},nothing, spriteClientFour,1)
+local clientFive= Item:new(800, 1500, 350, 200, {1,1,1},nothing, spriteClientFive,1)
+local clientNOE = Item:new(800, 1200, 350, 200, {1,1,1},gophaseTwo, spriteClientNOE,1)
 
 table.insert(items_collide, wallone)
 table.insert(items_collide, walltwo)
 table.insert(items_collide, walltrois)
 table.insert(items_collide, wallquatre)
+table.insert(items_collide, clientOne)
+table.insert(items_collide, clientTwo)
+table.insert(items_collide, clientThree)
+table.insert(items_collide, clientFour)
+table.insert(items_collide, clientFive)
+table.insert(items_collide, clientNOE)
+
 table.insert(items_collide, door)
-table.insert(items_interact, door)
+table.insert(items_interact, clientNOE)
+
 
 local me = player:new(600, 1600, {0,1,0}, items_collide, items_interact)
 

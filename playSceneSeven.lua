@@ -28,6 +28,7 @@ local spriteTable = love.graphics.newImage("img/table_no_eat.png")
 local spriteSeat = love.graphics.newImage("img/seat.png")
 local spriteCuisine = love.graphics.newImage("img/lacuisine.png")
 local spriteStairs = love.graphics.newImage("img/escalier.png")
+local spriteDoor = love.graphics.newImage("img/door.png")
 
 local spriteMaria = love.graphics.newImage("img/Maria.png")
 local Maria = Character:new(1700,130,100,160,spriteMaria,1.33,nothing,1,2)
@@ -37,10 +38,14 @@ local function gotoroom()
     moduleScene.currentScene = playSceneEight
 end
 
+local function gotogarden()
+    moduleScene.currentScene = playSceneSix
+end
+
 -------- Les murs
 local wallone = Item:new(0, 600, 500, 100,{139/255, 69/255, 19/255})
 local walltwo = Item:new(700, 600, 1400, 100,{139/255, 69/255, 19/255})
-local wallthree = Item:new(0, 1100, 500, 100,{139/255, 69/255, 19/255})
+local wallthree = Item:new(0, 1100, 600, 100,{139/255, 69/255, 19/255})
 local wallfour = Item:new(700, 1100, 500, 100,{139/255, 69/255, 19/255})
 local wallfive = Item:new(0, 600, 100, 500,{139/255, 69/255, 19/255})
 local wallsix = Item:new(1100, 600, 100, 500,{139/255, 69/255, 19/255})
@@ -51,6 +56,7 @@ local wallten = Item:new(2000, -100, 100, 700,{139/255, 69/255, 19/255})
 local table_no_eat = Item:new(400, 180, 600, 200,{1,1,1},nothing,spriteTable,1)
 local cuisine = Item:new(1400, 420, 600, 80,{1,1,1},nothing,spriteCuisine,1)
 local stairs = Item:new(100, 0, 100, 100,{1,1,1},gotoroom,spriteStairs,1)
+local door = Item:new(600, 1100,100,100,{1,1,1},gotogarden,spriteDoor,1)
 
 local seat_one = Item:new(450, 350, 100, 100,{1,1,1},nothing,spriteSeat,1)
 local seat_two = Item:new(660, 350, 100, 100,{1,1,1},nothing,spriteSeat,1)
@@ -71,6 +77,7 @@ table.insert(items_collide, wallseven)
 table.insert(items_collide, wallhuit)
 table.insert(items_collide, wallnine)
 table.insert(items_collide, wallten)
+table.insert(items_collide, door)
 table.insert(items_collide, Maria)
 table.insert(items_collide,cuisine)
 table.insert(items_collide,stairs)
@@ -89,8 +96,9 @@ table.insert(items_collide,seat_five)
 
 table.insert(items_interact,Maria)
 table.insert(items_interact,stairs)
+table.insert(items_interact, door)
 
-local me = player:new(100, 400, {0,1,0}, items_collide, items_interact)
+local me = player:new(500, 900, {1,1,1}, items_collide, items_interact)
 local camera = Camera:new(me.x,me.y)
 local fade = Fade:new(0.2,2)
 

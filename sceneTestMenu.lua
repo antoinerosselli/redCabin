@@ -43,7 +43,12 @@ end
 local function goScene7()
     moduleScene.currentScene = playSceneSeven
 end
-
+local function goSceneShadow()
+    moduleScene.currentScene = playSceneShadow
+end
+local function goSceneGame()
+    moduleScene.currentScene = gameCollectMemo
+end
 
 local buttonBack = Button:new(moduleParam.window_Width / 2 - 100,moduleParam.window_Height - 150 , 200, 100, {0, 0, 0}, "back",{1, 1, 1},goBack) 
 local buttonScene1 = Button:new(300, 200 , 200, 100, {0, 0, 0}, "Scene 1",{1, 1, 1},goScene1) 
@@ -53,6 +58,8 @@ local buttonScene4 = Button:new(300, 400 , 200, 100, {0, 0, 0}, "Scene 4",{1, 1,
 local buttonScene5 = Button:new(600, 400 , 200, 100, {0, 0, 0}, "Scene 5",{1, 1, 1},goScene5) 
 local buttonScene6 = Button:new(900, 400 , 200, 100, {0, 0, 0}, "Scene 6",{1, 1, 1},goScene6) 
 local buttonScene7 = Button:new(300, 600 , 200, 100, {0, 0, 0}, "Scene 7",{1, 1, 1},goScene7) 
+local buttonSceneShadow = Button:new(600, 600 , 200, 100, {0, 0, 0}, "Scene Shadow",{1, 1, 1},goSceneShadow) 
+local buttonSceneGame = Button:new(900, 600 , 200, 100, {0, 0, 0}, "Scene Memo",{1, 1, 1},goSceneGame) 
 table.insert(buttons,buttonBack)
 table.insert(buttons,buttonScene1)    
 table.insert(buttons,buttonScene2)    
@@ -60,8 +67,9 @@ table.insert(buttons,buttonScene3)
 table.insert(buttons,buttonScene4)    
 table.insert(buttons,buttonScene5)    
 table.insert(buttons,buttonScene6)   
-table.insert(buttons,buttonScene7)    
-
+table.insert(buttons,buttonScene7)
+table.insert(buttons,buttonSceneShadow)    
+table.insert(buttons,buttonSceneGame)    
 
 function sceneTestMenu:update(dt)
     for _, button in ipairs(buttons) do

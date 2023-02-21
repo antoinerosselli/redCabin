@@ -73,6 +73,9 @@ local function continue()
     if moduleSave:continue() == "playSceneNine" then
         moduleScene.currentScene = playSceneNine
     end 
+    if moduleSave:continue() == "playSceneTen" then
+        moduleScene.currentScene = playSceneNine
+    end 
 end
 
 local function changetoSettings()

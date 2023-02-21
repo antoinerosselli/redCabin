@@ -23,6 +23,9 @@ local playSceneSix = require('playSceneSix')
 local playSceneSeven = require('playSceneSeven')
 local playSceneEight = require('playSceneEight')
 local playSceneNine = require('playSceneNine')
+local playSceneTen = require('playSceneTen')
+local playSceneShadow = require('playSceneShadow')
+local gameCollectMemo = require('gameCollectMemo')
 local sceneTestMenu = require('sceneTestMenu')
 local current_text = 1 
 local boxstate = false
@@ -42,7 +45,7 @@ local introLogo = CineScene:new(introSprite,window_Width / 2 - 150,window_Height
 moduleScene.currentScene = introLogo
 local currentScene = moduleScene.currentScene
 moduleParam.fullScreen = true
-moduleParam:getParam()
+--moduleParam:getParam()
 
 function love.load()
     if moduleParam.fullScreen == true then
