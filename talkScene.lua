@@ -1,6 +1,6 @@
-local moduleScene = require("moduleScene")
-local moduleParam = require("moduleParam")
-local moduleTalk = require("moduleTalk")
+local moduleScene = require("module/moduleScene")
+local moduleParam = require("module/moduleParam")
+local moduleSave = require("module/moduleSave")
 
 TalkScene = {}
 TalkScene.__index = TalkScene

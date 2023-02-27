@@ -1,6 +1,4 @@
 -- Définition de la classe Button
-profile = require("profile")
-profile.start()
 local Button = require('button')
 local menuScene = require('menuScene')
 local CineScene = require('cineScene')
@@ -14,8 +12,8 @@ local pauseScene = require('pauseScene')
 local talkScene = require('talkScene')
 local changeCommandScene = require('changeCommandScene')
 local Player = require('player')
-local moduleScene = require('moduleScene')
-local moduleParam = require('moduleParam')
+local moduleScene = require('module/moduleScene')
+local moduleParam = require('module/moduleParam')
 local playSceneThree = require('playSceneThree')
 local playSceneFour = require('playSceneFour')
 local playSceneFive = require('playSceneFive')
@@ -27,6 +25,7 @@ local playSceneTen = require('playSceneTen')
 local playSceneShadow = require('playSceneShadow')
 local gameCollectMemo = require('gameCollectMemo')
 local sceneTestMenu = require('sceneTestMenu')
+local gameCourse = require('gameCourse')
 local current_text = 1 
 local boxstate = false
 local isDragging = false

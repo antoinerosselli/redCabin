@@ -1,7 +1,8 @@
 local Button = require('button')
 local menuScene = require('menuScene')
-local moduleScene = require("moduleScene")
-local moduleParam = require("moduleParam")
+local moduleScene = require("module/moduleScene")
+local moduleParam = require("module/moduleParam")
+local moduleSave = require("module/moduleSave")
 
 sceneTestMenu = {}
 sceneTestMenu.__index = sceneTestMenu
@@ -47,7 +48,13 @@ local function goSceneShadow()
     moduleScene.currentScene = playSceneShadow
 end
 local function goSceneGame()
-    moduleScene.currentScene = gameCollectMemo
+    testGame = gameCollectMemo:new("On meurt tous un jour",love.graphics.newImage("img/armoireLogan.png"))
+    moduleScene.currentScene = testGame
+end
+
+local function goSceneRunner()
+    testRunner = gameCourse:new("ok")
+    moduleScene.currentScene = testRunner
 end
 
 local buttonBack = Button:new(moduleParam.window_Width / 2 - 100,moduleParam.window_Height - 150 , 200, 100, {0, 0, 0}, "back",{1, 1, 1},goBack) 
@@ -60,6 +67,7 @@ local buttonScene6 = Button:new(900, 400 , 200, 100, {0, 0, 0}, "Scene 6",{1, 1,
 local buttonScene7 = Button:new(300, 600 , 200, 100, {0, 0, 0}, "Scene 7",{1, 1, 1},goScene7) 
 local buttonSceneShadow = Button:new(600, 600 , 200, 100, {0, 0, 0}, "Scene Shadow",{1, 1, 1},goSceneShadow) 
 local buttonSceneGame = Button:new(900, 600 , 200, 100, {0, 0, 0}, "Scene Memo",{1, 1, 1},goSceneGame) 
+local buttonSceneRunner = Button:new(100, 100 , 200, 100, {0, 0, 0}, "Scene Runner",{1, 1, 1},goSceneRunner) 
 table.insert(buttons,buttonBack)
 table.insert(buttons,buttonScene1)    
 table.insert(buttons,buttonScene2)    
@@ -70,6 +78,7 @@ table.insert(buttons,buttonScene6)
 table.insert(buttons,buttonScene7)
 table.insert(buttons,buttonSceneShadow)    
 table.insert(buttons,buttonSceneGame)    
+table.insert(buttons,buttonSceneRunner)    
 
 function sceneTestMenu:update(dt)
     for _, button in ipairs(buttons) do

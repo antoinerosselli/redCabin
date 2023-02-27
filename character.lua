@@ -1,4 +1,4 @@
-local moduleScene = require("moduleScene")
+local moduleScene = require("module/moduleScene")
 local Character = {}
 Character.__index = Character
 

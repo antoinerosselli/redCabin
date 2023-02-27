@@ -1,7 +1,7 @@
 local Button = require('button')
 local menuScene = require('menuScene')
-local moduleScene = require("moduleScene")
-local moduleParam = require("moduleParam")
+local moduleScene = require("module/moduleScene")
+local moduleParam = require("module/moduleParam")
 
 ParamScene = {}
 ParamScene.__index = ParamScene

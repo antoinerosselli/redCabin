@@ -1,8 +1,8 @@
-local moduleParam = require('moduleParam')
+local moduleParam = require('module/moduleParam')
 local cineScene = require("cineScene")
 local Button = require('button')
-local moduleScene = require('moduleScene')
-local moduleSave = require('moduleSave')
+local moduleScene = require('module/moduleScene')
+local moduleSave = require('module/moduleSave')
 local createNewGame = {}
 
 function createNewGame:new()

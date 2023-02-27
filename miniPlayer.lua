@@ -1,5 +1,5 @@
-local moduleScene = require("moduleScene")
-local moduleParam = require("moduleParam")
+local moduleScene = require("module/moduleScene")
+local moduleParam = require("module/moduleParam")
 local miniPlayer = {}
 
 function miniPlayer:new(x, y, color, list_collide,list_interact)
@@ -15,6 +15,8 @@ function miniPlayer:new(x, y, color, list_collide,list_interact)
         list_collide = list_collide,
         list_interact = list_interact,
         interact = false,
+        score = 0,
+        sprite = love.graphics.newImage('img/miniPla.png'),
         move = 'none'
     }
     setmetatable(object, {__index = miniPlayer})
@@ -25,7 +27,6 @@ local currentFrame_no_move = 0
 local currentFrame_move_up = 0
 local frameTimer = 0
 local frameDuration = 0.5
-
 
 function miniPlayer:update(dt)
     local canMove = true
@@ -99,13 +100,11 @@ function miniPlayer:update(dt)
 
     for i,v in ipairs(self.list_interact) do
         if self:checkCollision(self.x, self.y, self.width, self.height, v.x - 20, v.y - 20, v.width + 40, v.height + 40) then
-            self.interact = true
-            if love.keyboard.isDown(moduleParam.charac_interaction) and self.interact == true then
-                self:interaction(v)
-            end    
+            self.score = self.score + 1
+            v.respawn(v)
         end
-    end
-
+    end    
+        -- ...    
 end
 
 function miniPlayer:checkCollision(x,y,width,height,vx,vy,vwidth,vheight)
@@ -133,23 +132,13 @@ function miniPlayer:spawn()
         self.y = self.spawny    
     end
     moduleScene.needSpawn = false
+    self.score = 0;
 end
 
 function miniPlayer:draw()
     love.graphics.setColor({1,0,0})
-    love.graphics.rectangle("fill",self.x,self.y,self.width,self.height)
+    love.graphics.draw(self.sprite, self.x, self.y,0,1,1)
     love.graphics.setColor(1,1,1)   
-    
-    if self.interact == true then
-        love.graphics.setColor({0,0,0})
-        love.graphics.rectangle("fill", self.x + 25 , self.y - 160, self.width / 2, self.height / 2) 
-        love.graphics.setColor({1,1,0})
-        love.graphics.rectangle("line", self.x + 25, self.y - 160, self.width / 2, self.height / 2) 
-        love.graphics.setColor({1,1,1})
-        local font = love.graphics.newFont(20) 
-        love.graphics.setFont(font)      
-        love.graphics.printf(moduleParam.charac_interaction, self.x + 45, self.y - 150, 30, "left")
-    end
 end
 
 

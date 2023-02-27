@@ -1,4 +1,4 @@
-local moduleScene = require("moduleScene")
+local moduleScene = require("module/moduleScene")
 local Item = {}
 Item.__index = Item
 

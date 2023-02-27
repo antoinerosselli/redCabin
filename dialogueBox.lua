@@ -1,6 +1,6 @@
 local DialogueBox = {}
-local moduleScene = require('moduleScene')
-local moduleTalk = require('moduleTalk')
+local moduleScene = require('module/moduleScene')
+local moduleTalk = require('module/moduleTalk')
 DialogueBox.__index = DialogueBox
 
 function DialogueBox:new(text, textColor, boxColor)

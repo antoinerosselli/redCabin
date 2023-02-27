@@ -1,5 +1,5 @@
 local Button = require('button')
-local moduleScene = require("moduleScene")
+local moduleScene = require("module/moduleScene")
 
 PauseScene = {}
 PauseScene.__index = PauseScene

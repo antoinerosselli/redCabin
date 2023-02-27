@@ -1,5 +1,5 @@
-local moduleScene = require("moduleScene")
-local moduleParam = require("moduleParam")
+local moduleScene = require("module/moduleScene")
+local moduleParam = require("module/moduleParam")
 local Player = {}
 
 function Player:new(x, y, color, list_collide,list_interact)

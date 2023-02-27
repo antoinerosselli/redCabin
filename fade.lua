@@ -1,5 +1,5 @@
 local Fade = {}
-local moduleScene = require('moduleScene')
+local moduleScene = require('module/moduleScene')
 Fade.__index = Fade
 
 function Fade:new(speed,state)

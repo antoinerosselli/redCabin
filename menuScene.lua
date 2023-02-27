@@ -1,7 +1,7 @@
 local Button = require('button')
-local moduleScene = require("moduleScene")
-local moduleParam = require("moduleParam")
-local moduleSave = require("moduleSave")
+local moduleScene = require("module/moduleScene")
+local moduleParam = require("module/moduleParam")
+local moduleSave = require("module/moduleSave")
 local createNewGame = require("createNewGame")
 
 MenuScene = {}
@@ -39,8 +39,6 @@ end
 
 
 local function quit()
-    profile.stop()
-    print(profile.report(20))
     love.event.quit()
 end
 
