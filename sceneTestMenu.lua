@@ -48,7 +48,7 @@ local function goSceneShadow()
     moduleScene.currentScene = playSceneShadow
 end
 local function goSceneGame()
-    testGame = gameCollectMemo:new("On meurt tous un jour",love.graphics.newImage("img/armoireLogan.png"))
+    testGame = gameCollectMemo:new("TON PÈRE LE CHAUVE GROS FILS DE PUTE",love.graphics.newImage("img/feugabi.png"))
     moduleScene.currentScene = testGame
 end
 

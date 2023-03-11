@@ -70,7 +70,6 @@ table.insert(items_collide,fancetwo)
 table.insert(items_collide,Gabi)
 
 table.insert(items_interact,Gabi)
-table.insert(items_interact,maison)
 
 local me = player:new(600, 1300, {0,1,0}, items_collide, items_interact)
 

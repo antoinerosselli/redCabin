@@ -1,17 +1,14 @@
-local Button = require('button')
 local Fade = require('fade')
 local Item = require('Item')
 local moduleScene = require("module/moduleScene")
-local moduleParam = require("module/moduleParam")
 local moduleSave = require("module/moduleSave")
 local player = require('player')
 local Camera = require("camera")
 local Character = require("character")
-local gpMemberScene = require("gpMemberScene")
 local dialogue_box = require("dialogueBox")
-local CineScene = require("cineScene")
 local talkScene = require("talkScene")
 local TalkSceneInCar = require("talkSceneInCar")
+local event = require("event")
 
 playSceneTwo = {}
 playSceneTwo.__index = playSceneTwo
@@ -30,6 +27,12 @@ end
 local function goNextPlace()
     moduleScene.currentScene = playSceneThree
 end 
+
+
+local function go_to_shadow()
+    moduleScene.currentScene = playSceneShadow
+end
+
 
 local function go_to_car()
     local Gabi = love.graphics.newImage("img/gabi_big.png")
@@ -60,9 +63,7 @@ local function talkWithGabi()
     moduleScene.currentScene = talkLoganJulie
 end
 
-local buttons = {}
 local items_collide = {}
-local items_noCollide = {}
 local items_interact = {}
 local characters = {}
 
@@ -73,6 +74,8 @@ local spriteGabi = love.graphics.newImage("img/gabi_big.png")
 local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
 local spriteEstelFarm = love.graphics.newImage("img/Estel_Farm.png")
 local spriteVelo = love.graphics.newImage("img/bike.png")
+
+local eventSHlogan = event:new(200,1400,100,100,go_to_shadow)
 
 local me = player:new(600, 1600, {0,1,0}, items_collide, items_interact)
 local Gabi = Character:new(730,680,150,200,spriteGabi,1.2,talkWithGabi,1,2)
@@ -127,6 +130,7 @@ function playSceneTwo:update(dt)
     moduleSave:Save("playSceneTwo")
     camera:follow(me)
     fade:update(dt)
+    eventSHlogan:update(me)
     for _, character in ipairs(characters) do
         character:update(dt)
     end
