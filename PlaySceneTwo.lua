@@ -28,9 +28,11 @@ local function goNextPlace()
     moduleScene.currentScene = playSceneThree
 end 
 
-
 local function go_to_shadow()
-    moduleScene.currentScene = playSceneShadow
+    eventSHlogan.x = -100
+    local pssLogan = playSceneShadow:new(love.graphics.newImage('img/shadow_logan.png'),"TON PÈRE LE CHAUVE GROS FILS DE PUTE",love.graphics.newImage("img/feugabi.png"))
+    moduleScene.realworld = moduleScene.currentScene
+    moduleScene.currentScene = pssLogan
 end
 
 
@@ -75,7 +77,7 @@ local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
 local spriteEstelFarm = love.graphics.newImage("img/Estel_Farm.png")
 local spriteVelo = love.graphics.newImage("img/bike.png")
 
-local eventSHlogan = event:new(200,1400,100,100,go_to_shadow)
+eventSHlogan = event:new(200,1400,100,100,go_to_shadow)
 
 local me = player:new(600, 1600, {0,1,0}, items_collide, items_interact)
 local Gabi = Character:new(730,680,150,200,spriteGabi,1.2,talkWithGabi,1,2)

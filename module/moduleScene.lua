@@ -1,4 +1,5 @@
 local moduleScene = {}
+moduleScene.realworld = {}
 moduleScene.currentScene = {}
 moduleScene.oldScene = {}
 moduleScene.PlayScene = {}
