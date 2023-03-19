@@ -206,7 +206,6 @@ function changeCommandScene:load()
     table.insert(buttons,buttonHR_left)
     table.insert(buttons,buttonHR_right)
     table.insert(buttons,buttonHR_interaction)
-
 end
 
 function changeCommandScene:update(dt)

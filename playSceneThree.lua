@@ -1,16 +1,13 @@
-local Button = require('button')
 local Fade = require('fade')
 local Item = require('Item')
 local moduleScene = require("module/moduleScene")
-local moduleParam = require("module/moduleParam")
 local moduleSave = require("module/moduleSave")
 local player = require('player')
 local Camera = require("camera")
 local Character = require("character")
-local gpMemberScene = require("gpMemberScene")
 local dialogue_box = require("dialogueBox")
-local CineScene = require("cineScene")
 local talkScene = require("talkScene")
+local event = require("event")
 
 playSceneThree = {}
 playSceneThree.__index = playSceneThree
@@ -110,6 +107,15 @@ table.insert(items_interact,Saul)
 local me = player:new(600, 1600, {0,1,0}, items_collide, items_interact)
 local camera = Camera:new(me.x,me.y)
 
+local function go_to_shadow()
+    eventSHSaul.x = 3000
+    local pssSaul = playSceneShadow:new(love.graphics.newImage('img/ShadowSaul.png'),"TA MÈRE LE CHAUVE GROS FILS DE PUTE",love.graphics.newImage("img/larmeSaul.png"),1.2)
+    moduleScene.realworld = moduleScene.currentScene
+    moduleScene.currentScene = pssSaul
+end
+
+eventSHSaul = event:new(900,1450,100,100,go_to_shadow)
+
 local fade = Fade:new(0.2,2)
 
 function playSceneThree:load()
@@ -122,6 +128,7 @@ function playSceneThree:update(dt)
     moduleSave:Save("playSceneThree")
     camera:follow(me)
     fade:update(dt)
+    eventSHSaul:update(me)
     for _, item in ipairs(items_collide) do
         item:update(dt)
     end

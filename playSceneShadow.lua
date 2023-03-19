@@ -9,11 +9,12 @@ local Character = require("character")
 playSceneShadow = {}
 playSceneShadow.__index = playSceneShadow
 
-function playSceneShadow:new(spriteIndiv,words,sprite)
+function playSceneShadow:new(spriteIndiv,words,sprite,size)
     local o = {
         spriteIndiv = spriteIndiv,
         words = words,
-        sprite = sprite
+        sprite = sprite,
+        size = size or 1
     }
     setmetatable(o, self)
     return o
@@ -58,7 +59,7 @@ function playSceneShadow:load()
     table.insert(items_collide, wallquatre)
     table.insert(items_collide, Portal)
     table.insert(items_interact,Portal)
-    local indiv = Character:new(400,1000,100,200,self.spriteIndiv,2,game,1,1)
+    local indiv = Character:new(400,1000,100,200,self.spriteIndiv,self.size,game,1,1)
     indiv:load()
     table.insert(items_collide, indiv)
     table.insert(items_interact,indiv)

@@ -7,10 +7,7 @@ local moduleSave = require("module/moduleSave")
 local player = require('player')
 local Camera = require("camera")
 local Character = require("character")
-local gpMemberScene = require("gpMemberScene")
-local dialogue_box = require("dialogueBox")
-local CineScene = require("cineScene")
-local talkScene = require("talkScene")
+local event = require("event")
 
 playSceneSeven = {}
 playSceneSeven.__index = playSceneSeven
@@ -33,6 +30,15 @@ local spriteDoor = love.graphics.newImage("img/door.png")
 local spriteMaria = love.graphics.newImage("img/Maria.png")
 local Maria = Character:new(1700,130,100,160,spriteMaria,1.33,nothing,1,2)
 Maria:load()
+
+local function go_to_shadow()
+    eventSHMaria.x = 3000
+    local pssMaria = playSceneShadow:new(love.graphics.newImage('img/ShadowMaria.png'),"hola ketal alpa yopi lolo jeje",love.graphics.newImage("img/keymaria.png"),1.2)
+    moduleScene.realworld = moduleScene.currentScene
+    moduleScene.currentScene = pssMaria
+end
+
+eventSHMaria = event:new(100,700,100,100,go_to_shadow)
 
 local function gotoroom()
     moduleScene.currentScene = playSceneEight
@@ -112,6 +118,7 @@ function playSceneSeven:update(dt)
     moduleSave:Save("playSceneSeven")
     camera:follow(me)
     fade:update(dt)
+    eventSHMaria:update(me)
     for _, item in ipairs(items_collide) do
         item:update(dt)
     end

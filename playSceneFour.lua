@@ -11,6 +11,7 @@ local gpMemberScene = require("gpMemberScene")
 local dialogue_box = require("dialogueBox")
 local CineScene = require("cineScene")
 local talkScene = require("talkScene")
+local event = require("event")
 
 playSceneFour = {}
 playSceneFour.__index = playSceneFour
@@ -70,6 +71,16 @@ local function talkWithSofia()
     moduleScene.currentScene = talkSofiaJulie
 end
 
+local function go_to_shadow()
+    eventSHSofia.x = 3000
+    local pssSaul = playSceneShadow:new(love.graphics.newImage('img/ShadowSofia.png'),"TON ANUS LE CHAUVE GROS FILS DE POUTINE",love.graphics.newImage("img/bloodsofia.png"),1.2)
+    moduleScene.realworld = moduleScene.currentScene
+    moduleScene.currentScene = pssSaul
+end
+
+eventSHSofia = event:new(900,1450,100,100,go_to_shadow)
+
+
 local spriteCamionGabi = love.graphics.newImage("img/camion_de_gabi.png")
 local spriteSilo = love.graphics.newImage("img/silo.png")
 local spriteReserve = love.graphics.newImage("img/reserve.png")
@@ -127,6 +138,7 @@ function playSceneFour:update(dt)
     moduleSave:Save("playSceneFour")
     camera:follow(me)
     fade:update(dt)
+    eventSHSofia:update(me)
     for _, item in ipairs(items_collide) do
         item:update(dt)
     end
