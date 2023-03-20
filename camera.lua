@@ -1,6 +1,6 @@
 local Camera = {}
 
-function Camera:new(x,y)
+function Camera:new(scaleX,scaleY)
     local object = {
         x = 0,
         y = 0,
@@ -15,6 +15,7 @@ function Camera:follow(target)
     self.x = target.x - love.graphics.getWidth() / 2 / self.scaleX
     self.y = target.y - love.graphics.getHeight() / 2 / self.scaleY
 end
+
 
 function Camera:set()
     love.graphics.push()

@@ -74,6 +74,13 @@ local function continue()
     if moduleSave:continue() == "playSceneTen" then
         moduleScene.currentScene = playSceneNine
     end 
+    if moduleSave:continue() == "playSceneInCabin" then
+        moduleScene.currentScene = playSceneInCabin
+    end 
+    if moduleSave:continue() == "playSceneOutCabin" then
+        moduleScene.currentScene = playSceneOutCabin
+    end 
+
 end
 
 local function changetoSettings()
@@ -91,7 +98,7 @@ local buttonContinue = Button:new(moduleParam.window_Width - 250, posEntry , 200
 local buttonNew = Button:new(moduleParam.window_Width - 250, posEntry + 120, 200, 100, {0, 0, 0}, "Nouvelle partie",{1, 1, 1}, openPopup) 
 local buttonSettings = Button:new(moduleParam.window_Width - 250, posEntry + 240, 200, 100, {0, 0, 0}, "Paramètres",{1, 1, 1}, changetoSettings) 
 local buttonQuit = Button:new(moduleParam.window_Width - 250, posEntry + 360, 200, 100, {0, 0, 0}, "Quitter",{1, 1, 1}, quit) 
-local tilte = love.graphics.newImage("img/title.png")
+local tilte = love.graphics.newImage("img/red cabin.png")
 table.insert(buttons, buttonContinue)
 table.insert(buttons, buttonNew)
 table.insert(buttons, buttonSettings)
@@ -135,7 +142,7 @@ function MenuScene:draw()
     love.graphics.rectangle("fill", 0 , moduleParam.window_Height - 100 , moduleParam.window_Width - 300 , 150)
     love.graphics.setColor(1,1,1)
     love.graphics.draw(la_cabane, 200,moduleParam.window_Height - 700, 0, 1, 1)
-    love.graphics.draw(tilte,moduleParam.window_Width / 2 , 50,0,1,1)
+    love.graphics.draw(tilte,moduleParam.window_Width / 2 - 10 , -100 ,0,1,1)
     for _, button in ipairs(buttons) do
         button:draw()
     end

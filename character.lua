@@ -37,6 +37,11 @@ function Character:changeSkin(nSkin)
     end
 end
 
+function Character:tp(x,y)
+    self.x = x
+    self.y = y
+end
+
 function Character:move(x,y)
     self.destination = {x,y}
     self.moveB = true
